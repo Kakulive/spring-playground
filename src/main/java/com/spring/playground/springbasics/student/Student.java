@@ -5,6 +5,7 @@ import org.hibernate.annotations.Table;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.Period;
 
 @Getter
 @Setter

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class StudentService {
@@ -27,4 +28,11 @@ public class StudentService {
         studentRepository.save(student);
     }
 
+    public void deleteStudent(Long studentId) {
+        boolean exists = studentRepository.existsById(studentId);
+        if (!exists) {
+            throw new IllegalArgumentException("Student with ID: " + studentId + " does not exist");
+        }
+        studentRepository.deleteById(studentId);
+    }
 }
